@@ -1,0 +1,28 @@
+﻿@model DMEPhoneApp.Models.LoginData
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<p>
+    <div id="afterAut" style="display:none;">
+        <h3>Hello World!</h3>
+    </div>
+    <div id="loginForm">
+        <h3>Вход на сайт</h3>
+        <p>
+            <label>Введите email</label><br />
+            <input type="email" id="email" />
+        </p>
+        <p>
+            <label>Введите пароль</label><br />
+            <input type="password" id="password" />
+        </p>
+        <input type="submit" id="submitLogin" value="Логин" />
+    </div>
+     @*<script src="js/logIn.js" asp-append-version="true"></script>*@
+</p>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

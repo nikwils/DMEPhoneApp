@@ -1,0 +1,97 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using DMEPhoneApp.Models
+@model DMEPhoneApp.Models.IndexViewModel
+
+
+<h3>Список пользователей</h3>
+
+<form method="get" class="form">
+
+    <label>Имя: </label>
+    <input type="text" name="lastName" value="@Model.FilterViewModel.SelectedLastName" />
+
+    <label>Дата рождения с:</label>
+    <input type="date" name="dateOfBirthFrom" value="@Model.FilterViewModel.SelectedDateOfBirthFrom"/>
+
+    <label>Дата рождения по:</label>
+    <input type="date" name="dateOfBirthTo" value="@Model.FilterViewModel.SelectedDateOfBirthTo"/>
+
+
+    <input  type="submit" value="Фильтр" />
+
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              <a  asp-action="Index" asp-route-sortOrder="@(Model.SortViewModel.LastNameSort)">
+                ФИО
+            </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@(Model.SortViewModel.DateOfBirthSort)">
+                    Возраст
+                </a>
+            </th>
+            <th>
+                <span>Фото</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var r in Model.Results) {
+        <tr class="userInfo">
+            <td>@r.name.last @r.name.first</td>
+            <td>@r.dob.date.ToShortDateString()</td>
+            <td><img src="@r.picture.medium"/></td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a asp-action="Index"
+        asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+        asp-route-sortorder="@(Model.SortViewModel.Current)"
+        class="glyphicon glyphicon-chevron-left">
+        Назад
+    </a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a asp-action="Index"
+        asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+        asp-route-sortorder="@(Model.SortViewModel.Current)"
+        class="glyphicon glyphicon-chevron-right">
+        Вперед
+    </a>
+}
+</p>
+
+<div id="userInfoAut" style="display:none;">
+        <input type="button" value="Выйти" id="logOut" />
+</div>
+
+<!-- Modal -->
+<div class="popup-black" id="popup-black">
+    <div class="popup" id="popup">
+        <a class="close" id="close">×</a>
+       <div class="popup-body">
+           <table class="table-modal">
+                <tr>
+                    <th>Фамилия Имя</th>
+                    <th>Дата Рождения</th>
+                    <th>Фото</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                </tr>
+            <tbody id="info">
+            </tbody>
+        </table>
+      </div>
+    </div>     
+</div>

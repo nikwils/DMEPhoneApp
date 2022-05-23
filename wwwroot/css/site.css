@@ -1,0 +1,113 @@
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 14px;
+}
+
+body {
+    font-size: 16px;
+    margin-bottom: 60px;
+    background: #f0e267;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: black;
+}
+
+h3 {
+    padding-bottom: 12px;
+}
+
+input {
+    height: 28px;
+    width: 130px;
+}
+
+.form {
+    margin-bottom: 12px;
+}
+
+.forn div {
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+    .table th {
+        font-weight: bold;
+        padding: 5px;
+        background: #efefef;
+        border: 1px solid #dddddd;
+    }
+
+    .table td {
+        border: 1px solid #dddddd;
+        padding: 5px;
+    }
+
+.glyphicon {
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.glyphicon-chevron-right:after {
+    content: "\00BB";
+}
+
+.glyphicon-chevron-left:before {
+    content: "\00AB";
+}
+
+.container {
+    display: flex;
+}
+
+
+.popup-black {
+    display: none;
+}
+
+    .popup-black:before {
+        content: '';
+        background: #000;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        z-index: 9999;
+    }
+
+.popup {
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    padding: 20px;
+    width: 600px;
+    margin-left: -200px;
+    background: #fff;
+    border: 1px solid orange;
+    border-radius: 4px;
+    z-index: 99999;
+    opacity: 1;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
